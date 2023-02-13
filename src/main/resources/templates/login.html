@@ -10,7 +10,7 @@
                 <i class="fa fa-user"></i> Please Login
             </div>
             <div class="card-block" style="padding: 24px;">
-                <form name="f" th:action="@{/signin}" method="post" value='j_spring_security_check'>
+                <form name="f" th:action="@{/j_spring_security_check}" method="post" value='j_spring_security_check'>
                     <fieldset>
                         <!-- Thymeleaf + Spring Security error display -->
                         <div th:if="${param.error}" class="alert alert-danger">
