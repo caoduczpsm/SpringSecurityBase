@@ -34,31 +34,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery(sqlAuthorities).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http// ,
-//                .authorizeRequests()// ,
-//                .antMatchers( "/home").permitAll()
-//                .antMatchers("/index.html").permitAll()
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .antMatchers("/member/**").hasAnyRole("MEMBER", "ADMIN")
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .loginProcessingUrl("/j_spring_security_check")
-//                .loginProcessingUrl("/signin")
-//                .defaultSuccessUrl("/admin")
-//                .failureUrl("/login?error")
-//                .usernameParameter("txtUsername")
-//                .passwordParameter("txtPassword")
-//                 .and()
-//                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
-//                .and()
-//                .rememberMe().tokenValiditySeconds(2592000).key("mySecret!").rememberMeParameter("checkRememberMe");
-//
-//        return http.build();
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -79,25 +54,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .rememberMe().tokenValiditySeconds(2592000).key("mySecret!").rememberMeParameter("checkRememberMe");
     }
-
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(detailService).passwordEncoder(passwordEncoder());
-//        super.configure(auth);
-//    }
-
-//    @Bean
-//    DaoAuthenticationProvider authenticationProvider(){
-//        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-//        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-//        daoAuthenticationProvider.setUserDetailsService((UserDetailsService) this.userService);
-//
-//        return daoAuthenticationProvider;
-//    }
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) {
-//        auth.authenticationProvider(authenticationProvider());
-//    }
 
 }
